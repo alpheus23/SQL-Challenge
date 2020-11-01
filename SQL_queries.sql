@@ -9,3 +9,12 @@ ON s.emp_no = e.emp_no;
 SELECT first_name, last_name, hire_date
 FROM employees 
 WHERE hire_date LIKE '%1986'
+
+
+-- List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+SELECT d.dept_no, d.dept_name, de.emp_no, e.first_name, e.last_name
+FROM departments d
+INNER JOIN dept_emp de
+ON d.dept_no = de.dept_no
+INNER JOIN employees e
+ON e.emp_no = de.emp_no;
